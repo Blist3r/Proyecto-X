@@ -1,0 +1,7 @@
+body {
+    background: url('https://scontent.fbog2-2.fna.fbcdn.net/v/t1.0-9/82483661_980955098953597_572352302552186880_n.jpg?_nc_cat=108&_nc_sid=85a577&_nc_ohc=TGtLmGvG_fsAX-qoTT-&_nc_ht=scontent.fbog2-2.fna&oh=fd514e3a5b19806e14f7d1f50cffe758&oe=5E94E23C') no-repeat center center fixed;
+    -webkit-background-size: center;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: center;
+  }
