@@ -36,7 +36,7 @@ if ($_SESSION['user']) {
         <div class="bg"></div>
         
         <div class="home-btn d-none d-sm-block">
-            <a href="index.html"><i class="mdi mdi-home-variant h2 text-black"></i></a>
+            <a href="index.php"><i class="mdi mdi-home-variant h2 text-black"></i></a>
         </div>
 
         <div class="account-pages my-5 pt-sm-5">
@@ -44,7 +44,7 @@ if ($_SESSION['user']) {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center mb-5">
-                            <a href="index.html"></a>
+                            <a href="index.php"></a>
                             
                         </div>
                     </div>
