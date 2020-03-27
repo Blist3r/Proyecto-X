@@ -1,31 +1,21 @@
 <?php
 
-require('assets/php/validaciones/secure_tipo.php');
-
-$conexion = conexion();
+require ('assets/php/validaciones/secure_tipo.php');
 
 $sql = $conexion->prepare('SELECT * from usuarios where id = :id');
-
-$sql->bindParam(':id',$_SESSION['user']);
+$sql->bindParam(':id', $_SESSION['user']);
 $sql->execute();
-
-$resultado = $sql->rowCount();
 
 $datos = $sql->fetchAll();
 
 ?>
 
-
-
-
-
-
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="utf-8" />
-        <title>Starter page | Xoric - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>Factory | Agregar Usuario</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -431,75 +421,84 @@ $datos = $sql->fetchAll();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-body">
-                         <!-- Contenido  Pagina-->
-                             <h4 class="header-title">Agregar usuario</h4>
-                                    <hr class="mb-5" >        
-     <form action="assets/php/agregar_usuario.php" method="POST" class="px-5">
 
-<div class="form-group row">
-    <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
-    <div class="col-md-10">
-        <input class="form-control" type="number" placeholder="Ingrese la identificacion" id="identificacion" name="identificacion">
-    </div>
-</div>
+                                            <!-- CONTENT PAGE -->
+                                            <h4 class="header-title">Agregar Usuario</h4>
+                                            <hr class="mb-5">
 
-<div class="form-group row">
-    <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
-    <div class="col-md-10">
-        <input class="form-control" type="text" placeholder="Ingrese el nombre" id="nombre" name="nombre">
-    </div>
-</div>
+                                            <?php if (isset($_GET['e']) && $_GET['e'] == 1) { ?>
+                                                <div class='text-center mb-4'>
+                                                    <h5 class="text-success">El usuario se agrego correctamente.</h5>
+                                                </div>
+                                            <?php } else if(isset($_GET['e']) && $_GET['e'] == 0) { ?>
+                                                <div class='text-center mb-4'>
+                                                    <h5 class="text-danger">ERROR! el usuario no se agrego.</h5>
+                                                </div>
+                                            <?php } ?>
 
-<div class="form-group row">
-    <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
-    <div class="col-md-10">
-        <input class="form-control" type="text" placeholder="Ingrese el apellido" id="apellido" name="apellido">
-    </div>
-</div>
+                                            <form action="assets/php/agregar_usuario.php" method="POST" class="px-5">
 
-<div class="form-group row">
-    <label for="password" class="col-md-2 col-form-label">Contraseña</label>
-    <div class="col-md-10">
-        <input class="form-control" type="password" placeholder="Ingrese la contraseña" id="password" name="password">
-    </div>
-</div>
+                                                <div class="form-group row">
+                                                    <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="number" placeholder="Ingrese la identificacion" id="identificacion" name="identificacion" required>
+                                                    </div>
+                                                </div>
 
-<div class="form-group row">
-    <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de Certificado</label>
-    <div class="col-md-10">
-        <input class="form-control" type="date" placeholder="Ingrese la fecha de expiracion del certificado" id="fecha_certificado" name="fecha_certificado">
-    </div>
-</div>
+                                                <div class="form-group row">
+                                                    <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="text" placeholder="Ingrese el nombre" id="nombre" name="nombre" required>
+                                                    </div>
+                                                </div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Sede</label>
-    <div class="col-md-10">
-        <select class="form-control" id="sede" name="sede">
-            <option value="" >Seleccione la sede</option>
-            <option value="1" >San Pedro</option>
-        </select>
-    </div>
-</div>
+                                                <div class="form-group row">
+                                                    <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="text" placeholder="Ingrese el apellido" id="apellido" name="apellido" required>
+                                                    </div>
+                                                </div>
 
-<div class="form-group row">
-    <label class="col-md-2 col-form-label">Tipo</label>
-    <div class="col-md-10">
-        <select class="form-control" id="tipo" name="tipo">
-            <option value="" >Seleccione el tipo de usuario</option>
-            <option value="admin" >Administrador</option>
-            <option value="general" >General</option>
-        </select>
-    </div>
-</div>
+                                                <div class="form-group row">
+                                                    <label for="password" class="col-md-2 col-form-label">Contraseña</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="password" placeholder="Ingrese la contraseña" id="password" name="password" required>
+                                                    </div>
+                                                </div>
 
-<div class="text-center mt-4">
-    <button class="btn btn-success btn-lg waves-effect waves-light" type="submit">Enviar</button>
-</div>
+                                                <div class="form-group row">
+                                                    <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de Certificado</label>
+                                                    <div class="col-md-10">
+                                                        <input class="form-control" type="date" placeholder="Ingrese la fecha de expiracion del certificado" id="fecha_certificado" name="fecha_certificado" required>
+                                                    </div>
+                                                </div>
 
-</form>               
+                                                <div class="form-group row">
+                                                    <label class="col-md-2 col-form-label">Sede</label>
+                                                    <div class="col-md-10">
+                                                        <select class="form-control" id="sede" name="sede" required>
+                                                            <option value="" >Seleccione la sede</option>
+                                                            <option value="1" >San Pedro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="form-group row">
+                                                    <label class="col-md-2 col-form-label">Tipo</label>
+                                                    <div class="col-md-10">
+                                                        <select class="form-control" id="tipo" name="tipo" required>
+                                                            <option value="" >Seleccione el tipo de usuario</option>
+                                                            <option value="admin" >Administrador</option>
+                                                            <option value="general" >General</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
+                                                <div class="text-center mt-4">
+                                                    <button class="btn btn-success btn-lg waves-effect waves-light" type="submit">Enviar</button>
+                                                </div>
 
+                                            </form>
 
                                         </div>
                                     </div>
@@ -513,8 +512,6 @@ $datos = $sql->fetchAll();
                     <!-- end page-content-wrapper -->
                 </div>
                 <!-- End Page-content -->
-
-
 
                 
                 <footer class="footer">

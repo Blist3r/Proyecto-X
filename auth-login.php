@@ -1,13 +1,15 @@
 <?php
+
 session_start();
-if ($_SESSION["user"]){
-header ("location:index.php");
+
+if ($_SESSION['user']) {
+    header('location:index.php');
 }
+
 ?>
 
-
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="utf-8" />
@@ -86,11 +88,13 @@ header ("location:index.php");
                                                     <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Iniciar Sesion</button>
                                                 </div>
                                                 <?php
-                                                if(isset($_GET['e']) && $_GET['e'] == 1){?>
-                                                
-                                                <div class='text-center mt-2'>
-                                                    <h5 class="text-danger">Usuario o Contraseña Incorrecta </h5>
-                                                </div><?php } ?>
+
+                                                if (isset($_GET['e']) && $_GET['e'] == 1) { ?>
+                                                    <div class='text-center mt-2'>
+                                                        <h5 class="text-danger">Usuario o contraseña incorrectos</h5>
+                                                    </div>
+                                                <?php } ?>
+
                                                 <div class="mt-4 text-center">
                                                     <a href="auth-register.html" style="color: rgb(39, 39, 39);"><i class="mdi mdi-account-circle mr-1"></i> Crear una Cuenta</a>
                                                 </div>

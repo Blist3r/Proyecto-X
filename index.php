@@ -1,18 +1,19 @@
 <?php
-require("assets/php/validaciones/secure_login.php");
-require('assets/php/validaciones/conexion.php');
+
+require ('assets/php/validaciones/secure_login.php');
+require ('assets/php/validaciones/conexion.php');
+
 $conexion = conexion();
 
 $sql = $conexion->prepare('SELECT * from usuarios where id = :id');
-
-$sql->bindParam(':id',$_SESSION['user']);
+$sql->bindParam(':id', $_SESSION['user']);
 $sql->execute();
-
-$resultado = $sql->rowCount();
 
 $datos = $sql->fetchAll();
 
 ?>
+
+
 <!doctype html>
 <html lang="es">
 
@@ -143,15 +144,16 @@ $datos = $sql->fetchAll();
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1"><?php echo $datos[0]['nombre'];?></span>
+                                <span class="d-none d-sm-inline-block ml-1"><?php echo $datos[0]['nombre']; ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
-                                <?php if ($datos[0]['tipo'] == 'admin'){?>
-                                <a class="dropdown-item" href="agregar_usuario.php"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Agregar Usuario</a><?php }?>
+                                <?php if($datos[0]['tipo'] == 'admin') { ?>
+                                    <a class="dropdown-item" href="agregar_usuario.php"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Agregar Usuario</a>
+                                <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
