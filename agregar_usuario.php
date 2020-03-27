@@ -1,20 +1,36 @@
+<?php
+
+require('assets/php/validaciones/secure_tipo.php');
+
+$conexion = conexion();
+
+$sql = $conexion->prepare('SELECT * from usuarios where id = :id');
+
+$sql->bindParam(':id',$_SESSION['user']);
+$sql->execute();
+
+$resultado = $sql->rowCount();
+
+$datos = $sql->fetchAll();
+
+?>
+
+
+
+
+
+
 <!doctype html>
-<html lang="es">
+<html lang="en">
 
     <head>
         <meta charset="utf-8" />
-        <title>Factory - Inicio</title>
+        <title>Starter page | Xoric - Responsive Bootstrap 4 Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- datepicker -->
-        <link href="assets/libs/air-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
-
-        <!-- jvectormap -->
-        <link href="assets/libs/jqvmap/jqvmap.min.css" rel="stylesheet" />
 
         <!-- Bootstrap Css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -375,15 +391,16 @@
             <div class="main-content">
 
                 <div class="page-content">
-                    
+
                     <!-- Page-Title -->
                     <div class="page-title-box">
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title mb-1">Dashboard</h4>
+                                    <h4 class="page-title mb-1">Starter page</h4>
                                     <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item active">Welcome to Xoric Dashboard</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                                    <li class="breadcrumb-item active">Starter</li>
                                     </ol>
                                 </div>
                                 <div class="col-md-4">
@@ -411,386 +428,93 @@
                     <div class="page-content-wrapper">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-xl-4">
+                                <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-6">
-                                                    <h5>Welcome Back !</h5>
-                                                    <p class="text-muted">Xoric Dashboard</p>
+                         <!-- Contenido  Pagina-->
+                             <h4 class="header-title">Agregar usuario</h4>
+                                    <hr class="mb-5" >        
+     <form action="assets/php/agregar_usuario.php" method="POST" class="px-5">
 
-                                                    <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
+<div class="form-group row">
+    <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
+    <div class="col-md-10">
+        <input class="form-control" type="number" placeholder="Ingrese la identificacion" id="identificacion" name="identificacion">
+    </div>
+</div>
 
-                                                <div class="col-5 ml-auto">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="header-title mb-4">Monthy sale Report</h5>
-                                            <div class="media">
-                                                <div class="media-body">
-                                                    <p class="text-muted mb-2">This month Sale</p>
-                                                    <h4>$ 13,425</h4>
-                                                </div>
-                                                <div dir="ltr" class="ml-2">
-                                                    <input data-plugin="knob" data-width="56" data-height="56" data-linecap=round data-displayInput=false
-                                                    data-fgColor="#2fa97c" value="56" data-skin="tron" data-angleOffset="56"
-                                                    data-readOnly=true data-thickness=".17" />
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="media">
-                                                <div class="media-body">
-                                                    <p class="text-muted">Sale status</p>
-                                                    <h5 class="mb-0"> + 12 % <span class="font-size-14 text-muted ml-1">From previous period</span></h5>
-                                                </div>
+<div class="form-group row">
+    <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
+    <div class="col-md-10">
+        <input class="form-control" type="text" placeholder="Ingrese el nombre" id="nombre" name="nombre">
+    </div>
+</div>
 
-                                                <div class="align-self-end ml-2">
-                                                    <a href="#" class="btn btn-primary btn-sm">View more</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <div class="col-xl-8">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <form class="form-inline float-right">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control form-control-sm datepicker-here" data-range="true"  data-multiple-dates-separator=" - " data-language="en" placeholder="Select Date" />
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text"><i class="far fa-calendar font-size-12"></i></span>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <h5 class="header-title mb-4">Sales Report</h5>
-                                            <div id="yearly-sale-chart" class="apex-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                            </div>
-                            <!-- end row -->
+<div class="form-group row">
+    <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
+    <div class="col-md-10">
+        <input class="form-control" type="text" placeholder="Ingrese el apellido" id="apellido" name="apellido">
+    </div>
+</div>
 
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-header bg-transparent p-3">
-                                            <h5 class="header-title mb-0">Sales Status</h5>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Number of Sales</p>
-                                                        <h5 class="mb-0">1,625</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-layer-group"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Sales Revenue </p>
-                                                        <h5 class="mb-0">$ 42,235</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-analytics"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Average Price</p>
-                                                        <h5 class="mb-0">$ 14.56</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-ruler"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Product Sold</p>
-                                                        <h5 class="mb-0">8,235</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-box"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="header-title mb-4">Social Source</h5>
-                                            <div id="radial-chart" class="apex-charts"></div>
+<div class="form-group row">
+    <label for="password" class="col-md-2 col-form-label">Contraseña</label>
+    <div class="col-md-10">
+        <input class="form-control" type="password" placeholder="Ingrese la contraseña" id="password" name="password">
+    </div>
+</div>
 
-                                            <div class="text-center mt-3">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-primary mr-1"></i> Facebook</p>
-                                                            <h5>$ 1,625</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-warning mr-1"></i> Twitter</p>
-                                                            <h5>$ 1,504</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="header-title">Recent Activity</h5>
+<div class="form-group row">
+    <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de Certificado</label>
+    <div class="col-md-10">
+        <input class="form-control" type="date" placeholder="Ingrese la fecha de expiracion del certificado" id="fecha_certificado" name="fecha_certificado">
+    </div>
+</div>
 
-                                            <div id="activity-chart" class="apex-charts"></div>
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Sede</label>
+    <div class="col-md-10">
+        <select class="form-control" id="sede" name="sede">
+            <option value="" >Seleccione la sede</option>
+            <option value="1" >San Pedro</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-md-2 col-form-label">Tipo</label>
+    <div class="col-md-10">
+        <select class="form-control" id="tipo" name="tipo">
+            <option value="" >Seleccione el tipo de usuario</option>
+            <option value="admin" >Administrador</option>
+            <option value="general" >General</option>
+        </select>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <button class="btn btn-success btn-lg waves-effect waves-light" type="submit">Enviar</button>
+</div>
+
+</form>               
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- end row -->
 
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="float-right ml-2">
-                                                <a href="#">View all</a>
-                                            </div>
-                                            <h5 class="header-title mb-4">Latest Transaction</h5>
-
-                                            <div class="table-responsive">
-                                                <table class="table table-centered table-hover mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Transaction ID</th>
-                                                            <th scope="col">Name</th>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col">status</th>
-                                                            <th scope="col">Amount</th>
-                                                            <th scope="col">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1345</a>
-                                                            </th>
-                                                            <td>Danny Johnson</td>
-                                                            <td>26 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$124</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1346</a>
-                                                            </th>
-                                                            <td>Alvin Newton</td>
-                                                            <td>21 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-warning">Pending</div>
-                                                            </td>
-                                                            <td>$112</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1347</a>
-                                                            </th>
-                                                            <td>Bennie Perez</td>
-                                                            <td>15 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$106</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1348</a>
-                                                            </th>
-                                                            <td>Steven Kwon</td>
-                                                            <td>11 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$115</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1349</a>
-                                                            </th>
-                                                            <td>Bryan Roark</td>
-                                                            <td>08 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-danger">Cancel</div>
-                                                            </td>
-                                                            <td>$105</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                            <div class="mt-4">
-                                                <ul class="pagination pagination-rounded justify-content-center mb-0">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <i class="mdi mdi-chevron-left"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <i class="mdi mdi-chevron-right"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="header-title mb-4">Revenue by Location</h5>
-
-                                            <div id="usa-map"  style="height: 150px" class="mb-5"></div>
-
-                                            <div class="table-responsive">
-                                                <table class="table table-centered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">California</th>
-                                                            <td>$ 8,257</td>
-                                                            <td>
-                                                                <div dir="ltr" class="ml-2">
-                                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                                    data-fgColor="#2fa97c" value="56" data-skin="tron" data-angleOffset="36"
-                                                                    data-readOnly=true data-thickness=".2" />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">New York</th>
-                                                            <td>$ 7,253</td>
-                                                            <td>
-                                                                <div dir="ltr" class="ml-2">
-                                                                    <input data-plugin="knob" data-width="36" data-height="36" data-linecap=round data-displayInput=false
-                                                                    data-fgColor="#2fa97c" value="42" data-skin="tron" data-angleOffset="36"
-                                                                    data-readOnly=true data-thickness=".2" />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <div class="text-center">
-                                                    <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-
-                        </div> <!-- container-fluid -->
-                    </div>
+                        </div>
+                        <!-- end container-fluid -->
+                    </div> 
                     <!-- end page-content-wrapper -->
                 </div>
                 <!-- End Page-content -->
+
+
 
                 
                 <footer class="footer">
@@ -1136,20 +860,6 @@
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
-        <!-- datepicker -->
-        <script src="assets/libs/air-datepicker/js/datepicker.min.js"></script>
-        <script src="assets/libs/air-datepicker/js/i18n/datepicker.en.js"></script>
-
-        <!-- apexcharts -->
-        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
-        <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script> 
-
-        <!-- Jq vector map -->
-        <script src="assets/libs/jqvmap/jquery.vmap.min.js"></script>
-        <script src="assets/libs/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-        <script src="assets/js/pages/dashboard.init.js"></script>
 
         <script src="assets/js/app.js"></script>
 

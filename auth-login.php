@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ($_SESSION["user"]){
+header ("location:index.php");
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -47,18 +55,18 @@
                             <div class="card-body p-4" style="color: black;">
                                 <div class="p-2">
                                     <h5 class="mb-5 text-center">Iniciar Sesion</h5>
-                                    <form class="form-horizontal" action="index.html">
+                                    <form class="form-horizontal" action="assets/php/validar_login.php" method="POST">
 
                                         
                                             <div class="col-md-12">
                                                 <div class="form-group form-group-custom mb-4">
-                                                    <input type="text" class="form-control" id="username" required>
-                                                    <label for="username">Usuario</label>
+                                                    <input type="text" class="form-control" id="identificacion" name="identificacion" required>
+                                                    <label for="identificacion">Usuario</label>
                                                 </div>
 
                                                 <div class="form-group form-group-custom mb-4">
-                                                    <input type="password" class="form-control" id="userpassword" required>
-                                                    <label for="userpassword">Contraseña</label>
+                                                    <input type="password" class="form-control" id="password" name="password" required>
+                                                    <label for="password">Contraseña</label>
                                                 </div>
 
                                                 <div class="row">
@@ -77,6 +85,12 @@
                                                 <div class="mt-4">
                                                     <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Iniciar Sesion</button>
                                                 </div>
+                                                <?php
+                                                if(isset($_GET['e']) && $_GET['e'] == 1){?>
+                                                
+                                                <div class='text-center mt-2'>
+                                                    <h5 class="text-danger">Usuario o Contraseña Incorrecta </h5>
+                                                </div><?php } ?>
                                                 <div class="mt-4 text-center">
                                                     <a href="auth-register.html" style="color: rgb(39, 39, 39);"><i class="mdi mdi-account-circle mr-1"></i> Crear una Cuenta</a>
                                                 </div>
