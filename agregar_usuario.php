@@ -42,11 +42,8 @@ $datos = $sql->fetchAll();
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-dark.png" alt="" height="22">
-                                </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height="20">
+                                    <img src="assets/images/La_factory.jpg" alt="100" height="150">
                                 </span>
                             </a>
 
@@ -134,7 +131,7 @@ $datos = $sql->fetchAll();
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1">Smith</span>
+                                <span class="d-none d-sm-inline-block ml-1"><?php echo $datos[0]['nombre']; ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -387,11 +384,6 @@ $datos = $sql->fetchAll();
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title mb-1">Starter page</h4>
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                    <li class="breadcrumb-item active">Starter</li>
-                                    </ol>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="float-right d-none d-md-block">
