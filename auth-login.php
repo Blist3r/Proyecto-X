@@ -58,7 +58,6 @@ if ($_SESSION['user']) {
                                 <div class="p-2">
                                     <h5 class="mb-5 text-center">Iniciar Sesion</h5>
                                     <form class="form-horizontal" action="assets/php/validar_login.php" method="POST">
-
                                         
                                             <div class="col-md-12">
                                                 <div class="form-group form-group-custom mb-4">
@@ -87,9 +86,7 @@ if ($_SESSION['user']) {
                                                 <div class="mt-4">
                                                     <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Iniciar Sesion</button>
                                                 </div>
-                                                <?php
-
-                                                if (isset($_GET['e']) && $_GET['e'] == 1) { ?>
+                                                <?php if (isset($_GET['e']) && $_GET['e'] == 1) { ?>
                                                     <div class='text-center mt-2'>
                                                         <h5 class="text-danger">Usuario o contraseña incorrectos</h5>
                                                     </div>
