@@ -24,20 +24,20 @@ $datos = $sql->fetchAll();
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         <!-- datepicker -->
-        <link href="assets/libs/air-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/air-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
 
         <!-- jvectormap -->
-        <link href="assets/libs/jqvmap/jqvmap.min.css" rel="stylesheet" />
+        <link href="../assets/libs/jqvmap/jqvmap.min.css" rel="stylesheet" />
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -53,10 +53,10 @@ $datos = $sql->fetchAll();
                         <div class="navbar-brand-box">
                             <a href="index.php" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-light.png" alt="" height="22">
+                                    <img src="../assets/images/logo-sm-light.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/La_factory.jpg" alt="100" height="150">
+                                    <img src="../assets/images/La_factory.jpg" alt="100" height="150">
                                 </span>
                             </a>
                         </div>
@@ -105,7 +105,7 @@ $datos = $sql->fetchAll();
 
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                <img class="rounded-circle header-profile-user" src="../assets/images/users/avatar-1.jpg" alt="Header Avatar">
                                 <span class="d-none d-sm-inline-block ml-1"><?php echo $datos[0]['nombre']; ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
@@ -114,7 +114,7 @@ $datos = $sql->fetchAll();
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Perfil</a>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Caja</a>
                                 <?php if($datos[0]['tipo'] == 'admin') { ?>
-                                    <a class="dropdown-item" href="administrador.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
+                                    <a class="dropdown-item" href="index.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
                                 <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Cambiar Contraseña</a>
                                 <div class="dropdown-divider"></div>
@@ -148,8 +148,8 @@ $datos = $sql->fetchAll();
                             <li class="menu-title">Acciones</li>
 
                             <li>
-                                <a href="admin/usuarios.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline" style="font-size: 18px; color: #f3a82b;"></i></div>
+                                <a href="usuarios.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Usuarios</span>
                                 </a>
                             </li>
@@ -219,8 +219,18 @@ $datos = $sql->fetchAll();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-body">
+<<<<<<< HEAD
                                         <div class="row">
 
+=======
+                                            <div class="row">
+                                                
+                                                <div class="card-title">
+                                                    <h5 class="p-3">Usuarios</h5>
+                                                </div>
+
+                                            </div>
+>>>>>>> a5ae74b2b5e59b3a795265c4b530516935697357
                                         </div>
                                     </div>
                                 </div>
@@ -319,7 +329,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-10.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-10.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status online"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -334,7 +344,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status away"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -349,7 +359,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-9.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-9.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status busy"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -368,7 +378,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status online"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -383,7 +393,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status away"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -398,7 +408,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status online"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -413,7 +423,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status online"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -428,7 +438,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status busy"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -443,7 +453,7 @@ $datos = $sql->fetchAll();
                             <a href="javascript: void(0);" class="text-reset notification-item">
                                 <div class="media">
                                     <div class="position-relative align-self-center mr-3">
-                                        <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="../assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs" alt="user-pic">
                                         <i class="mdi mdi-circle user-status away"></i>
                                     </div>
                                     <div class="media-body overflow-hidden">
@@ -570,30 +580,30 @@ $datos = $sql->fetchAll();
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="../assets/libs/jquery/jquery.min.js"></script>
+        <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="../assets/libs/node-waves/waves.min.js"></script>
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
         <!-- datepicker -->
-        <script src="assets/libs/air-datepicker/js/datepicker.min.js"></script>
-        <script src="assets/libs/air-datepicker/js/i18n/datepicker.en.js"></script>
+        <script src="../assets/libs/air-datepicker/js/datepicker.min.js"></script>
+        <script src="../assets/libs/air-datepicker/js/i18n/datepicker.en.js"></script>
 
         <!-- apexcharts -->
-        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
 
-        <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script> 
+        <script src="../assets/libs/jquery-knob/jquery.knob.min.js"></script> 
 
         <!-- Jq vector map -->
-        <script src="assets/libs/jqvmap/jquery.vmap.min.js"></script>
-        <script src="assets/libs/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <script src="../assets/libs/jqvmap/jquery.vmap.min.js"></script>
+        <script src="../assets/libs/jqvmap/maps/jquery.vmap.usa.js"></script>
 
-        <script src="assets/js/pages/dashboard.init.js"></script>
+        <script src="../assets/js/pages/dashboard.init.js"></script>
 
-        <script src="assets/js/app.js"></script>
+        <script src="../assets/js/app.js"></script>
 
     </body>
 </html>
