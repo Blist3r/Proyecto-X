@@ -220,14 +220,7 @@ $datos = $sql->fetchAll();
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
-                                                    
 
-                                                <div class="col-5 ml-auto">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
