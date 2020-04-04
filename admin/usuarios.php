@@ -114,7 +114,7 @@ $datos = $sql->fetchAll();
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Perfil</a>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Caja</a>
                                 <?php if($datos[0]['tipo'] == 'admin') { ?>
-                                    <a class="dropdown-item" href="administrador.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
+                                    <a class="dropdown-item" href="index.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
                                 <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Cambiar Contraseña</a>
                                 <div class="dropdown-divider"></div>
@@ -149,7 +149,7 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="usuarios.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline" style="font-size: 18px; color: #f3a82b;"></i></div>
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Usuarios</span>
                                 </a>
                             </li>
@@ -221,6 +221,13 @@ $datos = $sql->fetchAll();
                                         <div class="card-body">
                                             <div class="row">
                                                 
+<<<<<<< HEAD
+=======
+                                                <div class="card-title">
+                                                    <h5 class="p-3">Usuarios</h5>
+                                                </div>
+
+>>>>>>> a5ae74b2b5e59b3a795265c4b530516935697357
                                             </div>
                                         </div>
                                     </div>
