@@ -19,7 +19,7 @@ $datos = $sql->fetchAll();
 
     <head>
         <meta charset="utf-8" />
-        <title>Factory - Inicio</title>
+        <title>Factory - Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -114,7 +114,7 @@ $datos = $sql->fetchAll();
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Perfil</a>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Caja</a>
                                 <?php if($datos[0]['tipo'] == 'admin') { ?>
-                                    <a class="dropdown-item" href="admin/index.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
+                                    <a class="dropdown-item" href="administrador.php"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i> Herramientas Admin</a>
                                 <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Cambiar Contraseña</a>
                                 <div class="dropdown-divider"></div>
@@ -148,23 +148,30 @@ $datos = $sql->fetchAll();
                             <li class="menu-title">Acciones</li>
 
                             <li>
+                                <a href="admin/usuarios.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline" style="font-size: 18px; color: #f3a82b;"></i></div>
+                                    <span>Usuarios</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="ventas.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
-                                    <span>Venta</span>
+                                    <span>Proveedores</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="caja.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-briefcase"></i></div>
-                                    <span>Caja</span>
+                                <a href="ventas.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <span>Inventario</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="salidas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-upload-alt"></i></div>
-                                    <span>Salida</span>
+                                <a href="ventas.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <span>Productos</span>
                                 </a>
                             </li>
 
@@ -190,7 +197,7 @@ $datos = $sql->fetchAll();
                                 <div class="col-md-8">
                                     <h4 class="page-title mb-1">LA FACTORY</h4>
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item active">User: <?php echo $datos[0]['nombre'].' '.$datos[0]['apellido'] ; ?></li>
+                                        <li class="breadcrumb-item active">User Admin: <?php echo $datos[0]['nombre'].' '.$datos[0]['apellido'] ; ?></li>
                                     </ol>
                                 </div>
                                 <div class="col-md-4">
@@ -214,7 +221,7 @@ $datos = $sql->fetchAll();
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6 mt-3">
-                                                    <h5>Bienvenido <?php echo $datos[0]['nombre']; ?></h5>
+                                                    <h5>Bienvenido Administrador <?php echo $datos[0]['nombre']; ?></h5>
 
                                                     <div class="mt-4">
                                                         <a href="#" class="btn btn-primary btn-sm">Iniciar turno <i class="mdi mdi-arrow-right ml-1"></i></a>
