@@ -148,7 +148,7 @@ $datos = $sql->fetchAll();
                             <li class="menu-title">Acciones</li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
+                                <a href="usuarios.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline" style="font-size: 18px; color: #f3a82b;"></i></div>
                                     <span>Usuarios</span>
                                 </a>
