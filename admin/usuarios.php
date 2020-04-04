@@ -219,18 +219,51 @@ $datos = $sql->fetchAll();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-body">
-<<<<<<< HEAD
                                         <div class="row">
+                                                <h5 class="p-3"> Usuarios </h5>
+                                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>ID</th>
+                                                            <th>Nombre</th>
+                                                            <th>Certificado</th>
+                                                            <th>Sede</th>
+                                                            <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>  
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php 
 
-=======
-                                            <div class="row">
-                                                
-                                                <div class="card-title">
-                                                    <h5 class="p-3">Usuarios</h5>
-                                                </div>
+                                                        $sql_users = $conexion->prepare('SELECT * from usuarios');
+                                                        $sql_users->execute();
 
+                                                        $datos_user = $sql_users->fetchAll();
+
+                                                        foreach ($datos_user as $row) { ?>
+                                                            <tr>
+                                                            <th scope="row"><?php echo $row['identificacion']; ?> </th>
+                                                            <td scope="row"><?php echo $row['nombre'].' '.$row['apellido'];?></td>
+                                                            <td scope="row"><?php echo $row['fecha_certificado']; ?></td>
+                                                            <td scope="row"><?php echo $row['sede']; ?></td>
+                                                            <td scope="row"><?php echo $row['tipo']; ?></td>
+                                                            <td><button class="btn btn-warning"><i class="mdi mdi-settings"></i></button><button class="btn btn-danger"><i class="mdi mdi-settings"></i></button></td>
+                                                        </tr>   
+                                                        
+
+                                                        <?php }  ?>
+
+                                                    </tbody>
+                                                </table>
                                             </div>
->>>>>>> a5ae74b2b5e59b3a795265c4b530516935697357
+            
+                                        </div>
+                                    </div>
+                                </div>
                                         </div>
                                     </div>
                                 </div>
