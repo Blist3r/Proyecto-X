@@ -22,6 +22,11 @@ File: Icons Css File
   line-height: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+  
+.mdi{
+  font-size: 18px !important;
+  color: #f3a82b !important;
+}
 
 .mdi-ab-testing::before {
   content: "\F001C"; }
