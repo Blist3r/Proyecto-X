@@ -11,7 +11,7 @@ $sql->execute();
 
 $datos = $sql->fetchAll();
 
-?>      
+?>
 
 
 <!doctype html>
@@ -19,7 +19,7 @@ $datos = $sql->fetchAll();
 
     <head>
         <meta charset="utf-8" />
-        <title>Factory - Inicio</title>
+        <title>Factory - Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -64,8 +64,12 @@ $datos = $sql->fetchAll();
                         <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn" style="margin-top: 35px">
                             <i class="mdi mdi-backburger"></i>
                         </button>
-                        
+
+                        <!-- App Search-->
+                        <form class="app-search d-none d-lg-block">
                             <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="mdi mdi-magnify"></span>
                             </div>
                         </form>
                     </div>
@@ -114,7 +118,7 @@ $datos = $sql->fetchAll();
                                 <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Cambiar Contraseña</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="auth-login.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Salir</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Salir</a>
                             </div>
                         </div>
             
@@ -145,24 +149,32 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="ventas.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline" style="font-size: 18px; color: #f3a82b;"></i></div>
+                                    <span>Usuarios</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="ventas.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
-                                    <span>Venta</span>
+                                    <span>Proveedores</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="caja.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-briefcase"></i></div>
-                                    <span>Caja</span>
+                                <a href="ventas.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <span>Inventario</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="salidas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-upload-alt"></i></div>
-                                    <span>Salida</span>
+                                <a href="ventas.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <span>Productos</span>
                                 </a>
                             </li>
+
                         </ul>
 
                     </div>
@@ -185,8 +197,8 @@ $datos = $sql->fetchAll();
                                 <div class="col-md-8">
                                     <h4 class="page-title mb-1">LA FACTORY</h4>
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item active">User: <?php echo $datos[0]['nombre'].' '.$datos[0]['apellido'] ; ?></li>
-                                        </ol>
+                                        <li class="breadcrumb-item active">User Admin: <?php echo $datos[0]['nombre'].' '.$datos[0]['apellido'] ; ?></li>
+                                    </ol>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="float-right d-none d-md-block">
@@ -209,7 +221,7 @@ $datos = $sql->fetchAll();
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6 mt-3">
-                                                    <h5>Bienvenido <?php echo $datos[0]['nombre']; ?></h5>
+                                                    <h5>Bienvenido Administrador <?php echo $datos[0]['nombre']; ?></h5>
 
                                                     <div class="mt-4">
                                                         <a href="#" class="btn btn-primary btn-sm">Iniciar turno <i class="mdi mdi-arrow-right ml-1"></i></a>
@@ -282,6 +294,13 @@ $datos = $sql->fetchAll();
                 <!-- Tab panes -->
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="chat-tab" role="tabpanel">
+                
+                        <form class="search-bar py-4 px-3">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="mdi mdi-magnify"></span>
+                            </div>
+                        </form>
 
                         <h6 class="px-4 py-3 mt-2 bg-light">Group Chats</h6>
 

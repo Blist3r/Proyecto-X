@@ -11,7 +11,7 @@ $sql->execute();
 
 $datos = $sql->fetchAll();
 
-?>      
+?>
 
 
 <!doctype html>
@@ -64,8 +64,12 @@ $datos = $sql->fetchAll();
                         <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn" style="margin-top: 35px">
                             <i class="mdi mdi-backburger"></i>
                         </button>
-                        
+
+                        <!-- App Search-->
+                        <form class="app-search d-none d-lg-block">
                             <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="mdi mdi-magnify"></span>
                             </div>
                         </form>
                     </div>
@@ -114,7 +118,7 @@ $datos = $sql->fetchAll();
                                 <?php } ?>
                                 <a class="dropdown-item" href="#"><i class="mdi mdi-lock font-size-16 align-middle mr-1"></i> Cambiar Contraseña</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="auth-login.php"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Salir</a>
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Salir</a>
                             </div>
                         </div>
             
@@ -163,6 +167,7 @@ $datos = $sql->fetchAll();
                                     <span>Salida</span>
                                 </a>
                             </li>
+
                         </ul>
 
                     </div>
@@ -186,7 +191,7 @@ $datos = $sql->fetchAll();
                                     <h4 class="page-title mb-1">LA FACTORY</h4>
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item active">User: <?php echo $datos[0]['nombre'].' '.$datos[0]['apellido'] ; ?></li>
-                                        </ol>
+                                    </ol>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="float-right d-none d-md-block">
@@ -282,6 +287,13 @@ $datos = $sql->fetchAll();
                 <!-- Tab panes -->
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="chat-tab" role="tabpanel">
+                
+                        <form class="search-bar py-4 px-3">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="mdi mdi-magnify"></span>
+                            </div>
+                        </form>
 
                         <h6 class="px-4 py-3 mt-2 bg-light">Group Chats</h6>
 
