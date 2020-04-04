@@ -140,8 +140,8 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="index.php" class="waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
-                                    <span>Dashboard</span>
+                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                                    <span>Inicio</span>
                                 </a>
                             </li>
 
