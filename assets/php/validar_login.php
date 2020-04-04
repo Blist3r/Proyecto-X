@@ -18,7 +18,11 @@ $datos = $sql->fetchAll();
 
 if ($resultado == 1) {
     $_SESSION['user'] = $datos[0]['id'];
-    header('location:../../index.php');
+    if ($datos[0]['tipo'] == 'admin') {
+        header('location:../../administrador.php');
+    } else {
+        header('location:../../index.php');
+    }
 } else {
     header('location:../../auth-login.php?e=1');
 }
