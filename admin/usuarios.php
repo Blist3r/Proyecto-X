@@ -1,7 +1,7 @@
 <?php
 
-require ('assets/php/validaciones/secure_login.php');
-require ('assets/php/validaciones/conexion.php');
+require ('../assets/php/validaciones/secure_login.php');
+require ('../assets/php/validaciones/conexion.php');
 
 $conexion = conexion();
 
@@ -220,13 +220,7 @@ $datos = $sql->fetchAll();
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-6 mt-3">
-                                                    <h5>Bienvenido Administrador <?php echo $datos[0]['nombre']; ?></h5>
-
-                                                    <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">Iniciar turno <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
+                                                    
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
