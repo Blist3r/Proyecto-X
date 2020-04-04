@@ -11,7 +11,7 @@ $sql->execute();
 
 $datos = $sql->fetchAll();
 
-?>
+?>      
 
 
 <!doctype html>
@@ -397,7 +397,7 @@ $datos = $sql->fetchAll();
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title mb-1">Dashboard</h4>
+                                    <h4 class="page-title mb-1">Inicio</h4>
                                     <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item active">Welcome to Xoric Dashboard</li>
                                     </ol>
