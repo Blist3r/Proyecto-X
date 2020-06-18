@@ -219,46 +219,54 @@ $datos = $sql->fetchAll();
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-body">
-                                        <div class="row">
-                                                <h5 class="p-3"> Usuarios </h5>
-                                                <div class="col-xl-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>ID</th>
-                                                            <th>Nombre</th>
-                                                            <th>Certificado</th>
-                                                            <th>Sede</th>
-                                                            <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>  
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php 
+                                            <div class="row">
+                                                
+                                                <div class="card-title">
+                                                    <h5 class="p-3">Usuarios</h5>
+                                                </div>
 
-                                                        $sql_users = $conexion->prepare('SELECT * from usuarios');
-                                                        $sql_users->execute();
+                                                <div class="col-xl-12"> 
+                                                            
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>Nombre</th>
+                                                                    <th>Exp. Certificado</th>
+                                                                    <th>Sede</th>
+                                                                    <th>Tipo</th>
+                                                                    <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
 
-                                                        $datos_user = $sql_users->fetchAll();
+                                                                $sql_users = $conexion->prepare('SELECT * from usuarios');
+                                                                $sql_users->execute();
 
-                                                        foreach ($datos_user as $row) { ?>
-                                                            <tr>
-                                                            <th scope="row"><?php echo $row['identificacion']; ?> </th>
-                                                            <td scope="row"><?php echo $row['nombre'].' '.$row['apellido'];?></td>
-                                                            <td scope="row"><?php echo $row['fecha_certificado']; ?></td>
-                                                            <td scope="row"><?php echo $row['sede']; ?></td>
-                                                            <td scope="row"><?php echo $row['tipo']; ?></td>
-                                                            <td><button class="btn btn-warning"><i class="mdi mdi-settings"></i></button><button class="btn btn-danger"><i class="mdi mdi-settings"></i></button></td>
-                                                        </tr>   
-                                                        
+                                                                $datos_users = $sql_users->fetchAll();
 
-                                                        <?php }  ?>
+                                                                foreach ($datos_users as $row) { ?>
+                                                                    <tr>
+                                                                        <th scope="row"><?php echo $row['identificacion']; ?></th>
+                                                                        <td><?php echo $row['nombre'].' '.$row['apellido']; ?></td>
+                                                                        <td><?php echo $row['fecha_certificado']; ?></td>
+                                                                        <td><?php echo $row['sede']; ?></td>
+                                                                        <td><?php echo $row['tipo']; ?></td>
+                                                                        <td>
+                                                                            <button class="btn btn-warning"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                                        </td>
+                                                                    </tr>
 
-                                                    </tbody>
-                                                </table>
+                                                                <?php } ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                            
+                                                </div>
+
                                             </div>
             
                                         </div>
