@@ -255,7 +255,7 @@ $datos = $sql->fetchAll();
                                                                         <td><?php echo $row['sede']; ?></td>
                                                                         <td><?php echo $row['tipo']; ?></td>
                                                                         <td>
-                                                                            <button class="btn btn-warning"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['nombre'])"><i class="mdi mdi-file-edit"></i></button> 
                                                                             <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
                                                                         </td>
                                                                     </tr>
@@ -645,6 +645,9 @@ $datos = $sql->fetchAll();
         <script src="../assets/js/pages/dashboard.init.js"></script>
 
         <script src="../assets/js/app.js"></script>
+
+        <!-- file.js carpeta adim -->   
+        <script src="assets/js/app.js"></script>
 
     </body>
 </html>
