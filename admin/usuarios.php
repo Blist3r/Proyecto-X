@@ -239,7 +239,7 @@ $datos = $sql->fetchAll();
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php               
+------------                                                       <?php               
                                                         $sql_users = $conexion->prepare('SELECT * from usuarios');
                                                         $sql_users->execute();
                                                         $datos_users = $sql_users->fetchAll();
