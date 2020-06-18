@@ -19,7 +19,7 @@ $datos = $sql->fetchAll();
 if ($resultado == 1) {
     $_SESSION['user'] = $datos[0]['id'];
     if ($datos[0]['tipo'] == 'admin') {
-        header('location:../../admin/index.php');
+        header('location:../../admin');
     } else {
         header('location:../../index.php');
     }

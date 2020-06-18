@@ -239,7 +239,7 @@ $datos = $sql->fetchAll();
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-------------                                                       <?php               
+                                                   <?php               
                                                         $sql_users = $conexion->prepare('SELECT * from usuarios');
                                                         $sql_users->execute();
                                                         $datos_users = $sql_users->fetchAll();
@@ -251,7 +251,7 @@ $datos = $sql->fetchAll();
                                                             <td cope="row"><?php echo $row ['sede'];?></td>
                                                             <td cope="row"><?php echo $row ['tipo'];?></td>
                                                             <td>
-                                                            <button class="btn btn-warning"><i class="mdi mdi-file-edit"></i></button> 
+                                                            <button class="btn btn-warning" onclick()><i class="mdi mdi-file-edit"></i></button> 
                                                             <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
                                                             </td>
                                                         </tr><?php
@@ -643,6 +643,10 @@ $datos = $sql->fetchAll();
         <script src="../assets/js/pages/dashboard.init.js"></script>
 
         <script src="../assets/js/app.js"></script>
+
+
+
+        <script src="/assets/js/app.js"></script>
 
     </body>
 </html>
