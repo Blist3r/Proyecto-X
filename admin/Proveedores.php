@@ -169,8 +169,8 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                <a href="productos.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Productos</span>
                                 </a>
                             </li>
@@ -223,7 +223,7 @@ $datos = $sql->fetchAll();
                                                 
                                                 <div class="card-title d-flex col-12">
                                                     <div class="row col-6">
-                                                        <h5 class="p-3">Usuarios</h5>
+                                                        <h5 class="p-3">Proveedores</h5>
                                                     </div>
                                                     <div class="row col-6 justify-content-end">
                                                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>

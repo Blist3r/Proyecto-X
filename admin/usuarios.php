@@ -155,8 +155,8 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                <a href="Proveedores.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Proveedores</span>
                                 </a>
                             </li>
@@ -169,8 +169,8 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                <a href="productos.php" class=" waves-effect">
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Productos</span>
                                 </a>
                             </li>
