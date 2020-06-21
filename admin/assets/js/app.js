@@ -18,6 +18,12 @@ function editUser(id) {
     })
 }
 
+function deleteUser(id, nombre) {
+    $('#modal_deleteUser').modal('show')
+    $('#content_delete_user').html(`<h3>¿Seguro desea eliminar a ${nombre}?`)
+    $('#identificacion_delete').val(id)
+}
+
 
 
 
