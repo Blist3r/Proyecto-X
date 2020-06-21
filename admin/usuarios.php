@@ -283,7 +283,7 @@ $datos = $sql->fetchAll();
                                                             <tbody>
                                                                 <?php
 
-                                                                $sql_users = $conexion->prepare('SELECT * from usuarios');
+                                                                $sql_users = $conexion->prepare('SELECT * from usuarios where estado = 1');
                                                                 $sql_users->execute();
 
                                                                 $datos_users = $sql_users->fetchAll();
@@ -295,8 +295,9 @@ $datos = $sql->fetchAll();
                                                                         <td><?php echo $row['fecha_certificado']; ?></td>
                                                                         <td><?php echo $row['sede']; ?></td>
                                                                         <td><?php echo $row['tipo']; ?></td>
-                                                                        <td>
-                                                                              <button class="btn btn-warning" onclick="editUser(<?php echo $row['nombre'])"><i class="mdi mdi-file-edit"></i></button> 
+                                                                        <td class="text-center">
+                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -307,10 +308,6 @@ $datos = $sql->fetchAll();
                                                 </div>
 
                                             </div>
-            
-                                        </div>
-                                    </div>
-                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -892,7 +889,7 @@ $datos = $sql->fetchAll();
 
         <script src="../assets/js/app.js"></script>
 
-        <!-- file.js carpeta adim -->   
+        <!-- Archivo app.js del modulo administrador -->
         <script src="assets/js/app.js"></script>
 
     </body>
