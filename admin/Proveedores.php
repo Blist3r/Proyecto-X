@@ -127,60 +127,60 @@ $datos = $sql->fetchAll();
 
             </header>
 
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
+             <!-- ========== Left Sidebar Start ========== -->
+             <div class="vertical-menu">
 
-                <div data-simplebar class="h-100">
+<div data-simplebar class="h-100">
 
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title">Menu</li>
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+        <!-- Left Menu Start -->
+        <ul class="metismenu list-unstyled" id="side-menu">
+            <li class="menu-title">Menu</li>
 
-                            <li>
-                                <a href="index.php" class="waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
-                                    <span>Inicio</span>
-                                </a>
-                            </li>
+            <li>
+                <a href="index.php" class="waves-effect">
+                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                    <span>Inicio</span>
+                </a>
+            </li>
 
-                            <li class="menu-title">Acciones</li>
+            <li class="menu-title">Acciones</li>
 
-                            <li>
-                                <a href="usuarios.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
-                                    <span>Usuarios</span>
-                                </a>
-                            </li>
+            <li>
+                <a href="usuarios.php" class=" waves-effect">
+                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-account-multiple-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
+                    <span>Usuarios</span>
+                </a>
+            </li>
 
-                            <li>
-                                <a href="Proveedores.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
-                                    <span>Proveedores</span>
-                                </a>
-                            </li>
+            <li>
+                <a href="Proveedores.php" class=" waves-effect">
+                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
+                    <span>Proveedores</span>
+                </a>
+            </li>
 
-                            <li>
-                                <a href="ventas.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
-                                    <span>Inventario</span>
-                                </a>
-                            </li>
+            <li>
+                <a href="ventas.php" class=" waves-effect">
+                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                    <span>Inventario</span>
+                </a>
+            </li>
 
-                            <li>
-                                <a href="productos.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
-                                    <span>Productos</span>
-                                </a>
-                            </li>
+            <li>
+                <a href="productos.php" class=" waves-effect">
+                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
+                    <span>Productos</span>
+                </a>
+            </li>
 
-                        </ul>
+        </ul>
 
-                    </div>
-                    <!-- Sidebar -->
-                </div>
-            </div>
+    </div>
+    <!-- Sidebar -->
+</div>
+</div>
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
@@ -232,37 +232,37 @@ $datos = $sql->fetchAll();
 
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se edito correctamente.
+                                                            El proveedor se edito correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se edito correctamente.
+                                                        El proveedor NO se edito correctamente.
                                                     </div>
                                                 <?php } ?>
 
                                                 <?php if (isset($_GET['create']) && $_GET['create'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se creo correctamente.
+                                                            El proveedor se creo correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['create']) && $_GET['create'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se creo correctamente.
+                                                        El proveedor NO se creo correctamente.
                                                     </div>
                                                 <?php } ?>
 
                                                 <?php if (isset($_GET['delete']) && $_GET['delete'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se elimino correctamente.
+                                                            El proveedor se elimino correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['delete']) && $_GET['delete'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se elimino correctamente.
+                                                        El proveedor NO se elimino correctamente.
                                                     </div>
                                                 <?php } ?>
 
@@ -274,27 +274,24 @@ $datos = $sql->fetchAll();
                                                                 <tr>
                                                                     <th>Id</th>
                                                                     <th>Nombre</th>
-                                                                    <th>Exp. Certificado</th>
-                                                                    <th>Sede</th>
-                                                                    <th>Tipo</th>
+                                                                    <th>Valor</th>
                                                                     <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <?php
 
-                                                                $sql_users = $conexion->prepare('SELECT * from usuarios');
-                                                                $sql_users->execute();
+                                                                $sql_prov = $conexion->prepare('SELECT * from proveedores where estado = 1');
+                                                                $sql_prov->execute();
 
-                                                                $datos_users = $sql_users->fetchAll();
+                                                                $datos_prov = $sql_prov->fetchAll();
 
-                                                                foreach ($datos_users as $row) { ?>
+                                                                foreach ($datos_prov as $row) { ?>
                                                                     <tr>
                                                                         <th scope="row"><?php echo $row['identificacion']; ?></th>
                                                                         <td><?php echo $row['nombre'].' '.$row['apellido']; ?></td>
-                                                                        <td><?php echo $row['fecha_certificado']; ?></td>
-                                                                        <td><?php echo $row['sede']; ?></td>
-                                                                        <td><?php echo $row['tipo']; ?></td>
+                                                                        <td><?php echo $row['valor']; ?></td>
+                                                                        <td><?php echo $row['estado']; ?></td>
                                                                         <td class="text-center">
                                                                             <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
                                                                             <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
@@ -655,17 +652,17 @@ $datos = $sql->fetchAll();
 
         <!-- INIT MODALS -->
 
-        <!-- Modal para editar los usuarios -->
-        <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <!-- Modal para editar los proveedores -->
+        <div class="modal fade bs-example-modal-xl" id="modal_editprov" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Editar Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Editar Proveedor</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">&times;</span>     
                         </button>
                     </div>
-                    <div class="modal-body" id="content_modal_editUser">
+                    <div class="modal-body" id="content_modal_editprov">
                         <form action="assets/php/user_update.php" method="POST">
                             <div class="form-group row">
                                 <label for="identificacion_edit" class="col-md-2 col-form-label">Identificacion</label>
@@ -682,53 +679,21 @@ $datos = $sql->fetchAll();
                             </div>
 
                             <div class="form-group row">
-                                <label for="apellido_edit" class="col-md-2 col-form-label">Apellido</label>
+                                <label for="contacto_edit" class="col-md-2 col-form-label">Contacto</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="apellido_edit" name="apellido_edit" />
+                                    <input class="form-control" type="int" id="contacto_edit" name="contacto_edit" />
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password_edit" class="col-md-2 col-form-label">Contraseña</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="password_edit" name="password_edit" placeholder="Escriba la contraseña" />
-                                </div>
-                            </div>
 
                             <div class="form-group row">
-                                <label for="fecha_certificado_edit" class="col-md-2 col-form-label">Fecha de certificado</label>
+                                <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="date" id="fecha_certificado_edit" name="fecha_certificado_edit" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Sede</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="sede_edit" name="sede_edit" required>
-                                        <option value="">Seleccione la sede</option>
-                                        <?php
-
-                                            $sql_sede = $conexion->prepare('SELECT * from sede');
-                                            $sql_sede->execute();
-
-                                            $datos_sede = $sql_sede->fetchAll();
-
-                                            foreach ($datos_sede as $sede) { ?>
-                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Tipo</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="tipo_edit" name="tipo_edit">
+                                    <select class="form-control" id="estado_proveedor_edit" name="estado_proveedor_edit">
                                         <option value="admin">Administrador</option>
                                         <option value="general">General</option>
                                     </select>
-                                </div>
+                                </div>  
                             </div>
 
                             <div class="form-group row justify-content-center">
@@ -741,24 +706,17 @@ $datos = $sql->fetchAll();
             </div><!-- /.modal-dialog -->
         </div>
 
-        <!-- Modal para crear los usuarios -->
+        <!-- Modal para crear los proveedores -->
         <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Crear Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Crear Proveedor</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="assets/php/user_create.php" method="POST">
-                            <div class="form-group row">
-                                <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="number" id="identificacion" name="identificacion" placeholder="Escriba la identificacion" required/>
-                                </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
@@ -768,54 +726,21 @@ $datos = $sql->fetchAll();
                             </div>
 
                             <div class="form-group row">
-                                <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
+                                <label for="contacto_edit" class="col-md-2 col-form-label">Contacto</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="apellido" name="apellido"  placeholder="Escriba el apellido" required/>
+                                    <input class="form-control" type="int" id="contacto_edit" name="contacto_edit" />
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password" class="col-md-2 col-form-label">Contraseña</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="password" name="password" placeholder="Escriba la contraseña" required/>
-                                </div>
-                            </div>
 
                             <div class="form-group row">
-                                <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de certificado</label>
+                                <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="date" id="fecha_certificado" name="fecha_certificado"  placeholder="Escriba la fecha de certificado" required/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Sede</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="sede" name="sede" required>
-                                        <option value="">Seleccione la sede</option>
-                                        <?php
-
-                                            $sql_sede = $conexion->prepare('SELECT * from sede');
-                                            $sql_sede->execute();
-
-                                            $datos_sede = $sql_sede->fetchAll();
-
-                                            foreach ($datos_sede as $sede) { ?>
-                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Tipo</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="tipo" name="tipo" required>
-                                        <option value="">Seleccione el tipo</option>
+                                    <select class="form-control" id="estado_proveedor_edit" name="estado_proveedor_edit">
                                         <option value="admin">Administrador</option>
                                         <option value="general">General</option>
                                     </select>
-                                </div>
+                                </div>  
                             </div>
 
                             <div class="form-group row justify-content-center">
@@ -828,7 +753,7 @@ $datos = $sql->fetchAll();
             </div><!-- /.modal-dialog -->
         </div>
 
-        <!-- Modal alert delete usuarios -->
+        <!-- Modal alert delete proveedor -->
         <div class="modal fade bs-example-modal-xl" id="modal_deleteUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
