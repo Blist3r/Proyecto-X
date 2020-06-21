@@ -17,11 +17,15 @@ $resultado = $sql->rowCount();
 $datos = $sql->fetchAll();
 
 if ($resultado == 1) {
-    $_SESSION['user'] = $datos[0]['id'];
-    if ($datos[0]['tipo'] == 'admin') {
-        header('location:../../admin');
+    if ($datos[0]['estado'] == 0) {
+        header('location:../../auth-login.php?e=2');
     } else {
-        header('location:../../index.php');
+        $_SESSION['user'] = $datos[0]['id'];
+        if ($datos[0]['tipo'] == 'admin') {
+            header('location:../../admin');
+        } else {
+            header('location:../../index.php');
+        }
     }
 } else {
     header('location:../../auth-login.php?e=1');
