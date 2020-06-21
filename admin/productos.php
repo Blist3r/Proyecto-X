@@ -226,7 +226,7 @@ $datos = $sql->fetchAll();
                                                         <h5 class="p-3">Productos</h5>
                                                     </div>
                                                     <div class="row col-6 justify-content-end">
-                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>
+                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_create_producto"> Crear</button>
                                                     </div>
                                                 </div>
 
@@ -272,7 +272,7 @@ $datos = $sql->fetchAll();
                                                         <table class="table table-bordered mb-0">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Id</th>
+                                                                    
                                                                     <th>Nombre</th>
                                                                     <th>Valor</th>
                                                                     <th>Estado</th>
@@ -282,20 +282,19 @@ $datos = $sql->fetchAll();
                                                             <tbody>
                                                                 <?php
 
-                                                                $sql_productos = $conexion->prepare('SELECT * from productos where estado = 1');
+                                                                $sql_productos = $conexion->prepare('SELECT * from producto where estado = 1');
                                                                 $sql_productos->execute();
 
                                                                 $datos_productos = $sql_productos->fetchAll();
 
                                                                 foreach ($datos_productos as $row) { ?>
                                                                     <tr>
-                                                                        <th scope="row"><?php echo $row['identificacion']; ?></th>
-                                                                        <td><?php echo $row['nombre'] ?></td>
+                                                                        <th scope="row"><?php echo $row['nombre'] ?></th>
                                                                         <td><?php echo $row['valor']; ?></td>
                                                                         <td><?php echo $row['estado']; ?></td>
                                                                         <td class="text-center">
-                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
-                                                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
+                                                                            <button class="btn btn-warning" onclick="editProducto(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-danger" onclick="deleteProducto(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -654,7 +653,7 @@ $datos = $sql->fetchAll();
         <!-- INIT MODALS -->
 
         <!-- Modal para editar los producto -->
-        <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_editProducto" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -664,7 +663,7 @@ $datos = $sql->fetchAll();
                         </button>
                     </div>
                     
-
+                        <div class="modal-body">                                                
                             <div class="form-group row">
                                 <label for="nombre_producto_edit" class="col-md-2 col-form-label">Nombre</label>
                                 <div class="col-md-10">
@@ -700,7 +699,7 @@ $datos = $sql->fetchAll();
         </div>
 
         <!-- Modal para crear los producto -->
-        <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_create_producto" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -709,7 +708,7 @@ $datos = $sql->fetchAll();
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
+                        <div class="modal-body">                                                
                             <div class="form-group row">
                                 <label for="nombre_producto" class="col-md-2 col-form-label">Nombre</label>
                                 <div class="col-md-10">
@@ -745,21 +744,21 @@ $datos = $sql->fetchAll();
             </div><!-- /.modal-dialog -->
         </div>
 
-        <!-- Modal alert delete usuarios -->
-        <div class="modal fade bs-example-modal-xl" id="modal_deleteUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+        <!-- Modal alert delete productos -->
+        <div class="modal fade bs-example-modal-xl" id="modal_deleteProducto" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Eliminar Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Eliminar Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="content_delete_user"></div>
-                        <form action="assets/php/user_delete.php" method="POST">
+                        <div id="content_delete_producto"></div>
+                        <form action="assets/php/productos_delete.php" method="POST">
                             
-                            <input class="form-control d-none" type="number" id="identificacion_delete" name="identificacion_delete" />
+                            <input class="form-control d-none" type="number" id="identificacion_producto_delete" name="identificacion_producto_delete" />
                             
                             <div class="row d-flex">
                                 <div class="form-group row justify-content-center">
