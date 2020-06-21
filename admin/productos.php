@@ -11,7 +11,7 @@ $sql->execute();
 
 $datos = $sql->fetchAll();
 
-?>
+   ?>
 
 
 <!doctype html>
