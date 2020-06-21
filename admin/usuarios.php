@@ -221,6 +221,7 @@ $datos = $sql->fetchAll();
                                         <div class="card-body">
                                             <div class="row">
                                                 
+<<<<<<< HEAD
                                                 <div class="card-title">
                                                     <h5 class="p-3">Usuarios</h5>
                                                     <div class="col-xl-12">
@@ -265,6 +266,15 @@ $datos = $sql->fetchAll();
                                         </div>
                                     </div>
                                 </div>
+=======
+                                                <div class="card-title d-flex col-12">
+                                                    <div class="row col-6">
+                                                        <h5 class="p-3">Usuarios</h5>
+                                                    </div>
+                                                    <div class="row col-6 justify-content-end">
+                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>
+                                                    </div>
+>>>>>>> e4381eb2fedee8dd67d9a0b617898303240a665b
                                                 </div>
 
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 1) { ?>
@@ -276,6 +286,30 @@ $datos = $sql->fetchAll();
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
                                                         El usuario NO se edito correctamente.
+                                                    </div>
+                                                <?php } ?>
+
+                                                <?php if (isset($_GET['create']) && $_GET['create'] == 1) { ?>
+                                                        <div class="alert alert-primary col-12" role="alert">
+                                                            El usuario se creo correctamente.
+                                                        </div>
+                                                <?php } ?>
+                                                
+                                                <?php if (isset($_GET['create']) && $_GET['create'] == 0) { ?>
+                                                    <div class="alert alert-danger col-12" role="alert">
+                                                        El usuario NO se creo correctamente.
+                                                    </div>
+                                                <?php } ?>
+
+                                                <?php if (isset($_GET['delete']) && $_GET['delete'] == 1) { ?>
+                                                        <div class="alert alert-primary col-12" role="alert">
+                                                            El usuario se elimino correctamente.
+                                                        </div>
+                                                <?php } ?>
+                                                
+                                                <?php if (isset($_GET['delete']) && $_GET['delete'] == 0) { ?>
+                                                    <div class="alert alert-danger col-12" role="alert">
+                                                        El usuario NO se elimino correctamente.
                                                     </div>
                                                 <?php } ?>
 
@@ -310,7 +344,7 @@ $datos = $sql->fetchAll();
                                                                         <td><?php echo $row['tipo']; ?></td>
                                                                         <td class="text-center">
                                                                             <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
-                                                                            <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -667,6 +701,8 @@ $datos = $sql->fetchAll();
         <!-- /Right-bar -->
 
         <!-- INIT MODALS -->
+
+        <!-- Modal para editar los usuarios -->
         <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -714,9 +750,21 @@ $datos = $sql->fetchAll();
                             </div>
 
                             <div class="form-group row">
-                                <label for="sede_edit" class="col-md-2 col-form-label">Sede</label>
+                                <label class="col-md-2 col-form-label">Sede</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="sede_edit" name="sede_edit" />
+                                    <select class="form-control" id="sede_edit" name="sede_edit" required>
+                                        <option value="">Seleccione la sede</option>
+                                        <?php
+
+                                            $sql_sede = $conexion->prepare('SELECT * from sede');
+                                            $sql_sede->execute();
+
+                                            $datos_sede = $sql_sede->fetchAll();
+
+                                            foreach ($datos_sede as $sede) { ?>
+                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
 
@@ -732,6 +780,125 @@ $datos = $sql->fetchAll();
 
                             <div class="form-group row justify-content-center">
                                 <button type="submit" class="btn btn-primary btn-lg mt-4">Actualizar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <!-- Modal para crear los usuarios -->
+        <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Crear Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="assets/php/user_create.php" method="POST">
+                            <div class="form-group row">
+                                <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="number" id="identificacion" name="identificacion" placeholder="Escriba la identificacion" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escriba el nombre" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" id="apellido" name="apellido"  placeholder="Escriba el apellido" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-2 col-form-label">Contraseña</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Escriba la contraseña" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de certificado</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="date" id="fecha_certificado" name="fecha_certificado"  placeholder="Escriba la fecha de certificado" required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">Sede</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="sede" name="sede" required>
+                                        <option value="">Seleccione la sede</option>
+                                        <?php
+
+                                            $sql_sede = $conexion->prepare('SELECT * from sede');
+                                            $sql_sede->execute();
+
+                                            $datos_sede = $sql_sede->fetchAll();
+
+                                            foreach ($datos_sede as $sede) { ?>
+                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">Tipo</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="tipo" name="tipo" required>
+                                        <option value="">Seleccione el tipo</option>
+                                        <option value="admin">Administrador</option>
+                                        <option value="general">General</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg mt-4">Crear</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <!-- Modal alert delete usuarios -->
+        <div class="modal fade bs-example-modal-xl" id="modal_deleteUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Eliminar Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="content_delete_user"></div>
+                        <form action="assets/php/user_delete.php" method="POST">
+                            
+                            <input class="form-control d-none" type="number" id="identificacion_delete" name="identificacion_delete" />
+                            
+                            <div class="row d-flex">
+                                <div class="form-group row justify-content-center">
+                                    <button type="button" class="btn btn-dark btn-lg m-4" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                                </div>
+
+                                <div class="form-group row justify-content-center">
+                                    <button type="submit" class="btn btn-danger btn-lg m-4">Eliminar</button>
+                                </div>
                             </div>
 
                         </form>
