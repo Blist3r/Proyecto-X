@@ -92,6 +92,12 @@ if (isset($_SESSION['user'])) {
                                                     </div>
                                                 <?php } ?>
 
+                                                <?php if (isset($_GET['e']) && $_GET['e'] == 2) { ?>
+                                                    <div class='text-center mt-2'>
+                                                        <h5 class="text-danger">El usuario se encuentra deshabilidato</h5>
+                                                    </div>
+                                                <?php } ?>
+
                                                 <div class="mt-4 text-center">
                                                     <a href="auth-register.html" style="color: rgb(39, 39, 39);"><i class="mdi mdi-account-circle mr-1"></i> Crear una Cuenta</a>
                                                 </div>
