@@ -155,7 +155,7 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
+                                <a href="Proveedores.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Proveedores</span> 
                                 </a>
