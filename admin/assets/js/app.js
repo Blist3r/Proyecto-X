@@ -13,7 +13,8 @@ function editUser(id) {
             $('#fecha_certificado_edit').val(data[0].fecha_certificado)
             $('#sede_edit').val(data[0].sede)
             $('#tipo_edit').val(data[0].tipo)
-
+            $('#estado_edit').val(data[0].estado)
+          
         }
     })
 }
