@@ -155,7 +155,7 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
+                                <a href="Proveedores.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                                     <span>Proveedores</span>
                                 </a>
@@ -169,7 +169,7 @@ $datos = $sql->fetchAll();
                             </li>
 
                             <li>
-                                <a href="ventas.php" class=" waves-effect">
+                                <a href="productos.php" class=" waves-effect">
                                     <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                                     <span>Productos</span>
                                 </a>
