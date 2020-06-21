@@ -11,7 +11,7 @@ $sql->execute();
 
 $datos = $sql->fetchAll();
 
-   ?>
+?>
 
 
 <!doctype html>
@@ -156,7 +156,7 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="Proveedores.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Proveedores</span>
                                 </a>
                             </li>
@@ -170,7 +170,7 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="productos.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Productos</span>
                                 </a>
                             </li>
@@ -223,7 +223,7 @@ $datos = $sql->fetchAll();
                                                 
                                                 <div class="card-title d-flex col-12">
                                                     <div class="row col-6">
-                                                        <h5 class="p-3">Usuarios</h5>
+                                                        <h5 class="p-3">Productos</h5>
                                                     </div>
                                                     <div class="row col-6 justify-content-end">
                                                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>
@@ -232,37 +232,37 @@ $datos = $sql->fetchAll();
 
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se edito correctamente.
+                                                            El Producto se edito correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['update']) && $_GET['update'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se edito correctamente.
+                                                        El Producto NO se edito correctamente.
                                                     </div>
                                                 <?php } ?>
 
                                                 <?php if (isset($_GET['create']) && $_GET['create'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se creo correctamente.
+                                                            El Producto se creo correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['create']) && $_GET['create'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se creo correctamente.
+                                                        El Producto NO se creo correctamente.
                                                     </div>
                                                 <?php } ?>
 
                                                 <?php if (isset($_GET['delete']) && $_GET['delete'] == 1) { ?>
                                                         <div class="alert alert-primary col-12" role="alert">
-                                                            El usuario se elimino correctamente.
+                                                            El Producto se elimino correctamente.
                                                         </div>
                                                 <?php } ?>
                                                 
                                                 <?php if (isset($_GET['delete']) && $_GET['delete'] == 0) { ?>
                                                     <div class="alert alert-danger col-12" role="alert">
-                                                        El usuario NO se elimino correctamente.
+                                                        El Producto NO se elimino correctamente.
                                                     </div>
                                                 <?php } ?>
 
@@ -274,27 +274,25 @@ $datos = $sql->fetchAll();
                                                                 <tr>
                                                                     <th>Id</th>
                                                                     <th>Nombre</th>
-                                                                    <th>Exp. Certificado</th>
-                                                                    <th>Sede</th>
-                                                                    <th>Tipo</th>
+                                                                    <th>Valor</th>
+                                                                    <th>Estado</th>
                                                                     <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <?php
 
-                                                                $sql_users = $conexion->prepare('SELECT * from usuarios');
-                                                                $sql_users->execute();
+                                                                $sql_productos = $conexion->prepare('SELECT * from productos where estado = 1');
+                                                                $sql_productos->execute();
 
-                                                                $datos_users = $sql_users->fetchAll();
+                                                                $datos_productos = $sql_productos->fetchAll();
 
-                                                                foreach ($datos_users as $row) { ?>
+                                                                foreach ($datos_productos as $row) { ?>
                                                                     <tr>
                                                                         <th scope="row"><?php echo $row['identificacion']; ?></th>
-                                                                        <td><?php echo $row['nombre'].' '.$row['apellido']; ?></td>
-                                                                        <td><?php echo $row['fecha_certificado']; ?></td>
-                                                                        <td><?php echo $row['sede']; ?></td>
-                                                                        <td><?php echo $row['tipo']; ?></td>
+                                                                        <td><?php echo $row['nombre'] ?></td>
+                                                                        <td><?php echo $row['valor']; ?></td>
+                                                                        <td><?php echo $row['estado']; ?></td>
                                                                         <td class="text-center">
                                                                             <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
                                                                             <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
@@ -655,78 +653,38 @@ $datos = $sql->fetchAll();
 
         <!-- INIT MODALS -->
 
-        <!-- Modal para editar los usuarios -->
+        <!-- Modal para editar los producto -->
         <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Editar Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Editar Productos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="content_modal_editUser">
-                        <form action="assets/php/user_update.php" method="POST">
+                    
+
                             <div class="form-group row">
-                                <label for="identificacion_edit" class="col-md-2 col-form-label">Identificacion</label>
+                                <label for="nombre_producto_edit" class="col-md-2 col-form-label">Nombre</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="number" id="identificacion_edit" name="identificacion_edit" />
+                                    <input class="form-control" type="text" id="nombre_producto_edit" name="nombre_producto_edit" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="nombre_edit" class="col-md-2 col-form-label">Nombre</label>
+                                <label for="valor_producto_edit" class="col-md-2 col-form-label">Valor</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="nombre_edit" name="nombre_edit" />
+                                    <input class="form-control" type="number" id="valor_producto_edit" name="valor_producto_edit" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="apellido_edit" class="col-md-2 col-form-label">Apellido</label>
+                                <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="apellido_edit" name="apellido_edit" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password_edit" class="col-md-2 col-form-label">Contraseña</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="password_edit" name="password_edit" placeholder="Escriba la contraseña" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="fecha_certificado_edit" class="col-md-2 col-form-label">Fecha de certificado</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="date" id="fecha_certificado_edit" name="fecha_certificado_edit" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Sede</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="sede_edit" name="sede_edit" required>
-                                        <option value="">Seleccione la sede</option>
-                                        <?php
-
-                                            $sql_sede = $conexion->prepare('SELECT * from sede');
-                                            $sql_sede->execute();
-
-                                            $datos_sede = $sql_sede->fetchAll();
-
-                                            foreach ($datos_sede as $sede) { ?>
-                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Tipo</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="tipo_edit" name="tipo_edit">
-                                        <option value="admin">Administrador</option>
-                                        <option value="general">General</option>
+                                    <select class="form-control" id="estado_producto_edit" name="estado_producto_edit">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
                                     </select>
                                 </div>
                             </div>
@@ -741,79 +699,38 @@ $datos = $sql->fetchAll();
             </div><!-- /.modal-dialog -->
         </div>
 
-        <!-- Modal para crear los usuarios -->
+        <!-- Modal para crear los producto -->
         <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Crear Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Crear Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="assets/php/user_create.php" method="POST">
+
                             <div class="form-group row">
-                                <label for="identificacion" class="col-md-2 col-form-label">Identificacion</label>
+                                <label for="nombre_producto" class="col-md-2 col-form-label">Nombre</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="number" id="identificacion" name="identificacion" placeholder="Escriba la identificacion" required/>
+                                    <input class="form-control" type="text" id="nombre_producto" name="nombre_producto" placeholder="Escriba el nombre" required/>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
+                                <label for="valor_producto" class="col-md-2 col-form-label">Valor</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Escriba el nombre" required/>
+                                    <input class="form-control" type="text" id="valor_producto" name="valor_producto"  placeholder="Escriba el Valor" required/>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="apellido" class="col-md-2 col-form-label">Apellido</label>
+                                <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="apellido" name="apellido"  placeholder="Escriba el apellido" required/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-2 col-form-label">Contraseña</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="password" name="password" placeholder="Escriba la contraseña" required/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="fecha_certificado" class="col-md-2 col-form-label">Fecha de certificado</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="date" id="fecha_certificado" name="fecha_certificado"  placeholder="Escriba la fecha de certificado" required/>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Sede</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="sede" name="sede" required>
-                                        <option value="">Seleccione la sede</option>
-                                        <?php
-
-                                            $sql_sede = $conexion->prepare('SELECT * from sede');
-                                            $sql_sede->execute();
-
-                                            $datos_sede = $sql_sede->fetchAll();
-
-                                            foreach ($datos_sede as $sede) { ?>
-                                                <option value="<?php echo $sede['id']; ?>"><?php echo $sede['nombre']; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-2 col-form-label">Tipo</label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="tipo" name="tipo" required>
-                                        <option value="">Seleccione el tipo</option>
-                                        <option value="admin">Administrador</option>
-                                        <option value="general">General</option>
+                                    <select class="form-control" id="estado_producto" name="estado_producto" required>
+                                        <option value="">Seleccione el estado</option>
+                                        <option value="1">activo</option>
+                                        <option value="0">inactivo</option>
                                     </select>
                                 </div>
                             </div>

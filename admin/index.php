@@ -170,7 +170,7 @@ $datos = $sql->fetchAll();
 
                             <li>
                                 <a href="productos.php" class=" waves-effect">
-                                    <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
+                                    <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-food p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                                     <span>Productos</span>
                                 </a>
                             </li>
