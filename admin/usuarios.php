@@ -277,6 +277,7 @@ $datos = $sql->fetchAll();
                                                                     <th>Exp. Certificado</th>
                                                                     <th>Sede</th>
                                                                     <th>Tipo</th>
+                                                                    <th>Estado</th>
                                                                     <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
                                                                 </tr>
                                                             </thead>
@@ -295,6 +296,7 @@ $datos = $sql->fetchAll();
                                                                         <td><?php echo $row['fecha_certificado']; ?></td>
                                                                         <td><?php echo $row['sede']; ?></td>
                                                                         <td><?php echo $row['tipo']; ?></td>
+                                                                        <td><?php echo $row['estado']; ?></td>
                                                                         <td class="text-center">
                                                                             <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
                                                                             <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
@@ -731,6 +733,16 @@ $datos = $sql->fetchAll();
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">Estado</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="estado_edit" name="estado_edit">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group row justify-content-center">
                                 <button type="submit" class="btn btn-primary btn-lg mt-4">Actualizar</button>
                             </div>
@@ -814,6 +826,17 @@ $datos = $sql->fetchAll();
                                         <option value="">Seleccione el tipo</option>
                                         <option value="admin">Administrador</option>
                                         <option value="general">General</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">Estado</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="estado" name="estado" required>
+                                        <option value="">Seleccione el estado</option>
+                                        <option value="1">activo</option>
+                                        <option value="0">inactivo</option>
                                     </select>
                                 </div>
                             </div>
