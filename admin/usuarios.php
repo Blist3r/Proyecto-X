@@ -295,18 +295,8 @@ $datos = $sql->fetchAll();
                                                                         <td><?php echo $row['fecha_certificado']; ?></td>
                                                                         <td><?php echo $row['sede']; ?></td>
                                                                         <td><?php echo $row['tipo']; ?></td>
-<<<<<<< HEAD
                                                                         <td>
-                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['nombre'])"><i class="mdi mdi-file-edit"></i></button> 
-=======
-                                                                        <td class="text-center">
-                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
-<<<<<<< HEAD
->>>>>>> fe203c4aab0be6838f8a938b9241aa153de18239
-                                                                            <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
-=======
-                                                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
->>>>>>> 4a84ac5011dc7d28e241a440c5d60c212450b49a
+                                                                              <button class="btn btn-warning" onclick="editUser(<?php echo $row['nombre'])"><i class="mdi mdi-file-edit"></i></button> 
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -902,11 +892,7 @@ $datos = $sql->fetchAll();
 
         <script src="../assets/js/app.js"></script>
 
-<<<<<<< HEAD
         <!-- file.js carpeta adim -->   
-=======
-        <!-- Archivo app.js del modulo administrador -->
->>>>>>> fe203c4aab0be6838f8a938b9241aa153de18239
         <script src="assets/js/app.js"></script>
 
     </body>
