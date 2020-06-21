@@ -267,7 +267,58 @@ $datos = $sql->fetchAll();
                                 </div>
                                                 </div>
 
+                                                <?php if (isset($_GET['update']) && $_GET['update'] == 1) { ?>
+                                                        <div class="alert alert-primary col-12" role="alert">
+                                                            El usuario se edito correctamente.
+                                                        </div>
+                                                <?php } ?>
                                                 
+                                                <?php if (isset($_GET['update']) && $_GET['update'] == 0) { ?>
+                                                    <div class="alert alert-danger col-12" role="alert">
+                                                        El usuario NO se edito correctamente.
+                                                    </div>
+                                                <?php } ?>
+
+                                                <div class="col-xl-12"> 
+                                                            
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>Nombre</th>
+                                                                    <th>Exp. Certificado</th>
+                                                                    <th>Sede</th>
+                                                                    <th>Tipo</th>
+                                                                    <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php
+
+                                                                $sql_users = $conexion->prepare('SELECT * from usuarios');
+                                                                $sql_users->execute();
+
+                                                                $datos_users = $sql_users->fetchAll();
+
+                                                                foreach ($datos_users as $row) { ?>
+                                                                    <tr>
+                                                                        <th scope="row"><?php echo $row['identificacion']; ?></th>
+                                                                        <td><?php echo $row['nombre'].' '.$row['apellido']; ?></td>
+                                                                        <td><?php echo $row['fecha_certificado']; ?></td>
+                                                                        <td><?php echo $row['sede']; ?></td>
+                                                                        <td><?php echo $row['tipo']; ?></td>
+                                                                        <td class="text-center">
+                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php } ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                            
+                                                </div>
 
                                             </div>
                                         </div>
@@ -615,6 +666,80 @@ $datos = $sql->fetchAll();
         </div>
         <!-- /Right-bar -->
 
+        <!-- INIT MODALS -->
+        <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Editar Usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="content_modal_editUser">
+                        <form action="assets/php/user_update.php" method="POST">
+                            <div class="form-group row">
+                                <label for="identificacion_edit" class="col-md-2 col-form-label">Identificacion</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="number" id="identificacion_edit" name="identificacion_edit" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="nombre_edit" class="col-md-2 col-form-label">Nombre</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" id="nombre_edit" name="nombre_edit" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="apellido_edit" class="col-md-2 col-form-label">Apellido</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" id="apellido_edit" name="apellido_edit" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password_edit" class="col-md-2 col-form-label">Contraseña</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="password" id="password_edit" name="password_edit" placeholder="Escriba la contraseña" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="fecha_certificado_edit" class="col-md-2 col-form-label">Fecha de certificado</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="date" id="fecha_certificado_edit" name="fecha_certificado_edit" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="sede_edit" class="col-md-2 col-form-label">Sede</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" id="sede_edit" name="sede_edit" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label">Tipo</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="tipo_edit" name="tipo_edit">
+                                        <option value="admin">Administrador</option>
+                                        <option value="general">General</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg mt-4">Actualizar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
@@ -644,9 +769,14 @@ $datos = $sql->fetchAll();
 
         <script src="../assets/js/app.js"></script>
 
+<<<<<<< HEAD
 
 
         <script src="/assets/js/app.js"></script>
+=======
+        <!-- Archivo app.js del modulo administrador -->
+        <script src="assets/js/app.js"></script>
+>>>>>>> fe203c4aab0be6838f8a938b9241aa153de18239
 
     </body>
 </html>
