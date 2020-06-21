@@ -17,7 +17,7 @@ $datos = $sql->fetchAll();
 <!doctype html>
 <html lang="es">
 
-    <head>
+    <head>  
         <meta charset="utf-8" />
         <title>Factory - Administrador</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,7 +155,7 @@ $datos = $sql->fetchAll();
             </li>
 
             <li>
-                <a href="Proveedores.php" class=" waves-effect">
+                <a href="proveedor.php" class=" waves-effect">
                     <div class="d-inline-block icons-sm mr-1"><i class="mdi mdi-truck-outline p-1" style="font-size: 20px; color: #f3a82b;"></i></div>
                     <span>Proveedores</span>
                 </a>
@@ -226,7 +226,7 @@ $datos = $sql->fetchAll();
                                                         <h5 class="p-3">Proveedores</h5>
                                                     </div>
                                                     <div class="row col-6 justify-content-end">
-                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>
+                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_create_proveedor"> Crear</button>
                                                     </div>
                                                 </div>
 
@@ -272,30 +272,29 @@ $datos = $sql->fetchAll();
                                                         <table class="table table-bordered mb-0">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Id</th>
                                                                     <th>Nombre</th>
-                                                                    <th>Valor</th>
+                                                                    <th>Contacto</th>
+                                                                    <th>Estado</th>
                                                                     <th class="text-center"><i class="mdi mdi-settings font-size-16 align-middle mr-1"></i></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <?php
 
-                                                                $sql_prov = $conexion->prepare('SELECT * from proveedores where estado = 1');
+                                                                $sql_prov = $conexion->prepare('SELECT * from proveedor where estado = 1');
                                                                 $sql_prov->execute();
 
                                                                 $datos_prov = $sql_prov->fetchAll();
 
                                                                 foreach ($datos_prov as $row) { ?>
                                                                     <tr>
-                                                                        <th scope="row"><?php echo $row['identificacion']; ?></th>
-                                                                        <td><?php echo $row['nombre'].' '.$row['apellido']; ?></td>
-                                                                        <td><?php echo $row['valor']; ?></td>
+                                                                        <td><?php echo $row['nombre']; ?></td>
+                                                                        <td><?php echo $row['contacto']; ?></td>
                                                                         <td><?php echo $row['estado']; ?></td>
                                                                         <td class="text-center">
-                                                                            <button class="btn btn-warning" onclick="editUser(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
-                                                                            <button class="btn btn-danger" onclick="deleteUser(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
-                                                                        </td>
+                                                                            <button class="btn btn-warning" onclick="editproveedor(<?php echo $row['id']; ?>)"><i class="mdi mdi-file-edit"></i></button> 
+                                                                            <button class="btn btn-danger" onclick="deleteproveedor(<?php echo $row['id']; ?>, '<?php echo $row['nombre']; ?>')"><i class="mdi mdi-delete"></i></button>
+                                                                        </td>       
                                                                     </tr>
                                                                 <?php } ?>
                                                             </tbody>
@@ -653,7 +652,7 @@ $datos = $sql->fetchAll();
         <!-- INIT MODALS -->
 
         <!-- Modal para editar los proveedores -->
-        <div class="modal fade bs-example-modal-xl" id="modal_editprov" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_edit_proveedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -662,14 +661,8 @@ $datos = $sql->fetchAll();
                             <span aria-hidden="true">&times;</span>     
                         </button>
                     </div>
-                    <div class="modal-body" id="content_modal_editprov">
-                        <form action="assets/php/user_update.php" method="POST">
-                            <div class="form-group row">
-                                <label for="identificacion_edit" class="col-md-2 col-form-label">Identificacion</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="number" id="identificacion_edit" name="identificacion_edit" />
-                                </div>
-                            </div>
+                    <div class="modal-body" id="content_modal_edit_proveedor">
+
 
                             <div class="form-group row">
                                 <label for="nombre_edit" class="col-md-2 col-form-label">Nombre</label>
@@ -690,10 +683,10 @@ $datos = $sql->fetchAll();
                                 <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
                                     <select class="form-control" id="estado_proveedor_edit" name="estado_proveedor_edit">
-                                        <option value="admin">Administrador</option>
-                                        <option value="general">General</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
                                     </select>
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="form-group row justify-content-center">
@@ -707,7 +700,7 @@ $datos = $sql->fetchAll();
         </div>
 
         <!-- Modal para crear los proveedores -->
-        <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_create_proveedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -736,11 +729,11 @@ $datos = $sql->fetchAll();
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <select class="form-control" id="estado_proveedor_edit" name="estado_proveedor_edit">
-                                        <option value="admin">Administrador</option>
-                                        <option value="general">General</option>
+                                    <select class="form-control" id="estado_producto_edit" name="estado_producto_edit">
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
                                     </select>
-                                </div>  
+                                </div>
                             </div>
 
                             <div class="form-group row justify-content-center">
@@ -754,20 +747,20 @@ $datos = $sql->fetchAll();
         </div>
 
         <!-- Modal alert delete proveedor -->
-        <div class="modal fade bs-example-modal-xl" id="modal_deleteUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_delete_proveedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Eliminar Usuario</h5>
+                        <h5 class="modal-title mt-0" id="myExtraLargeModal">Eliminar Proveedor</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div id="content_delete_user"></div>
-                        <form action="assets/php/user_delete.php" method="POST">
+                        <form action="assets/php/proveedor_delete.php" method="POST">
                             
-                            <input class="form-control d-none" type="number" id="identificacion_delete" name="identificacion_delete" />
+                            <input class="form-control d-none" type="number" id="identificacion_proveedor_delete" name="identificacion_proveedor_delete" />
                             
                             <div class="row d-flex">
                                 <div class="form-group row justify-content-center">
@@ -778,7 +771,7 @@ $datos = $sql->fetchAll();
                                     <button type="submit" class="btn btn-danger btn-lg m-4">Eliminar</button>
                                 </div>
                             </div>
-
+                                                                    
                         </form>
                     </div>
                 </div><!-- /.modal-content -->

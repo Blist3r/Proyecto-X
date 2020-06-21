@@ -226,7 +226,7 @@ $datos = $sql->fetchAll();
                                                         <h5 class="p-3">Productos</h5>
                                                     </div>
                                                     <div class="row col-6 justify-content-end">
-                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_createUser"> Crear</button>
+                                                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_create_proveedor"> Crear</button>
                                                     </div>
                                                 </div>
 
@@ -654,7 +654,7 @@ $datos = $sql->fetchAll();
         <!-- INIT MODALS -->
 
         <!-- Modal para editar los producto -->
-        <div class="modal fade bs-example-modal-xl" id="modal_editUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_edit_proveedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -700,7 +700,7 @@ $datos = $sql->fetchAll();
         </div>
 
         <!-- Modal para crear los producto -->
-        <div class="modal fade bs-example-modal-xl" id="modal_createUser" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
+        <div class="modal fade bs-example-modal-xl" id="modal_create_proveedor" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModal" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -711,23 +711,23 @@ $datos = $sql->fetchAll();
                     </div>
 
                             <div class="form-group row">
-                                <label for="nombre_producto" class="col-md-2 col-form-label">Nombre</label>
+                                <label for="nombre_proveedor" class="col-md-2 col-form-label">Nombre</label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="text" id="nombre_producto" name="nombre_producto" placeholder="Escriba el nombre" required/>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="valor_producto" class="col-md-2 col-form-label">Valor</label>
+                                <label for="contacto_proveedor" class="col-md-2 col-form-label">Contacto</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="valor_producto" name="valor_producto"  placeholder="Escriba el Valor" required/>
+                                    <input class="form-control" type="text" id="contacto_producto" name="contacto_producto"  placeholder="Escriba el Valor" required/>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-md-2 col-form-label">Estado</label>
                                 <div class="col-md-10">
-                                    <select class="form-control" id="estado_producto" name="estado_producto" required>
+                                    <select class="form-control" id="estado_proveedor" name="estado_proveedor" required>
                                         <option value="">Seleccione el estado</option>
                                         <option value="1">activo</option>
                                         <option value="0">inactivo</option>
