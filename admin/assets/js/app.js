@@ -18,7 +18,6 @@ function editUser(id) {
         }
     })
 }
-
 function deleteUser(id, nombre) {
     $('#modal_deleteUser').modal('show')
     $('#content_delete_user').html(`<h3>¿Seguro desea eliminar a ${nombre}?`)
@@ -53,6 +52,30 @@ function deleteproveedor(id, nombre) {
     $('#identificacion_proveedor_delete').val(id)
 }
 
+
+function editProducto(id) {
+    $.ajax({
+        url: 'assets/php/validaciones/datos-productos.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { id:id },
+        success: function (data) {
+            $('#modal_editProducto').modal('show')
+
+            
+            $('#nombre_producto_edit').val(data[0].nombre)
+            $('#valor_producto_edit').val(data[0].apellido)
+            $('#estado_producto_edit').val(data[0].estado)
+          
+        }
+    })
+}
+
+function deleteProducto(id, nombre) {
+    $('#modal_deleteProducto').modal('show')
+    $('#content_delete_producto').html(`<h3>¿Seguro desea eliminar a ${nombre}?`)
+    $('#identificacion_producto_delete').val(id)
+}
 
 
 
